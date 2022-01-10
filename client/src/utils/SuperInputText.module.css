@@ -1,0 +1,43 @@
+.superInput {
+    border: 1px solid black;
+    background: wheat;
+}
+
+.errorInput {
+    border: 3px solid lime;
+    background: red;
+}
+
+.error {
+    color: red;
+}
+
+.newSpanClassName {
+    color: black;
+    font-style: italic;
+    text-decoration-line: underline;
+
+}
+.select{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    position: relative;
+    outline: none;
+    padding: 5px;
+    padding-right: 40px;
+    width: 300px;
+    background: none;
+    font-size: 15px;
+    font-style: italic;
+    text-decoration-line: underline;
+}
+.select:after{
+    content: "";
+    display: block;
+    width: 300px;
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
