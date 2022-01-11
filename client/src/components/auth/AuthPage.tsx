@@ -1,5 +1,6 @@
 import React, {Dispatch, SetStateAction, useState} from "react";
 import SuperInputText from "../../utils/SuperInputText";
+import css from "./auth.module.css"
 
 type PropsAuthPage = {
     auth: Dispatch<SetStateAction<boolean>>
@@ -64,18 +65,22 @@ export const AuthPage = ({auth}: PropsAuthPage) => {
     }
 
     return (
-        <div>
-            <h1>AUTHPAGE</h1>
-            <div> Авторизация</div>
-            <label> email </label>
-            <SuperInputText id={"email"} placeholder={"введите email"}
-                            name={"email"} onChangeText={setEmail}/>
-            <label> Пароль </label>
-            <SuperInputText id={"password"} placeholder={"введите пароль"}
-                            type={"password"} name={"password"} onChangeText={setPassword}/>
-
-            <button onClick={loginRequest}> ВХОД</button>
-            <button onClick={registrationRequest}> РЕГИСТРАЦИЯ</button>
+        <div className={css.content}>
+            <h1 className={css.h1}>ВХОД НА САЙТ</h1>
+            <div className={css.input}>
+                <label> email </label>
+                <SuperInputText className={css.input_text} id={"email"} placeholder={"введите email"}
+                                name={"email"} onChangeText={setEmail}/>
+            </div>
+            <div className={css.input}>
+                <label> Пароль </label>
+                <SuperInputText className={css.input_text} id={"password"} placeholder={"введите пароль"}
+                                type={"password"} name={"password"} onChangeText={setPassword}/>
+            </div>
+            <div className={css.btn_block}>
+            <button className={css.btn} onClick={loginRequest}> ВХОД</button>
+            <button className={css.btn} onClick={registrationRequest}> РЕГИСТРАЦИЯ</button>
+            </div>
             {email}
             {password}
             <div style={{color: "red"}}>{error}</div>
