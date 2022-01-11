@@ -29,6 +29,33 @@ export const FormRequisitesFirm = React.memo(({
 
     const [modalActive, setModalActive] = useState<boolean>(false)
     console.log("render Form")
+    const [error, setError] = useState('')
+
+    const newCustomerRequest = async () => {
+        try {
+            setError('')
+            const response = await fetch('/api/customer/customer', {
+                method: 'POST', headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify({nameFirm, address, bankAccount, unp})
+            })
+            const data = await response.json()
+            console.log('msg', data.message)
+            console.log('data', data)
+            if (!response.ok && data.errors) {
+                throw new Error(data.errors[0].msg || "something go wrong")
+            }
+
+        } catch (e: any) {
+            console.error(e)
+            setError(e.toString())
+        }
+
+    }
+
+
+
     return (<div>
         {val === 'customer' &&
         <button className={css.button}
@@ -66,7 +93,8 @@ export const FormRequisitesFirm = React.memo(({
                        className={inp.input} style={{width: '250px'}}
                        value={bankAccount} onChange={changeBankAccount} maxLength={28}/>
             </div>
-
+            <button onClick={newCustomerRequest}> сохранить на сервер </button>
+            <div style={{color: "red"}}>{error}</div>
         </Modal>
     </div>)
 })
