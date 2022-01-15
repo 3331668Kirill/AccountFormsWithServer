@@ -50,7 +50,7 @@ export const AuthPage = ({auth}: PropsAuthPage) => {
             console.log('token', data.token)
             if (data.token) {
                 auth(true)
-                localStorage.setItem('data', JSON.stringify(data))
+                sessionStorage.setItem('data', JSON.stringify(data))
             }
             console.log('data', data)
             if (!response.ok) {

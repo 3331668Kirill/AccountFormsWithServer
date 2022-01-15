@@ -225,6 +225,61 @@ export const FormToPrintTTN = React.memo(({
                 <span>№ пломбы</span>
                 <span>__________________</span>
             </div>
+            <div>
+                II. ПОГРУЗОЧНО-РАЗГРУЗОЧНЫЕ ОПЕРАЦИИ
+            </div>
+            <table className={css.table_second}>
+                <tr className={css.up}>
+                    <th>Операция</th>
+                    <th>Исполнитель</th>
+                    <th>Способ(ручной,механизированный)</th>
+                    <th>Код</th>
+                    <th>Прибытие</th>
+                    <th>Убытие</th>
+                    <th>Простой</th>
+                    <th>Время</th>
+                    <th>Наименование</th>
+                    <th>Подпись</th>
+
+
+                </tr>
+                <tr className={css.up}>
+                    <td></td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                </tr>
+                <tr className={css.up}>
+                    <td>погрузка</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr className={css.up}>
+                    <td>разгрузка</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
 
     )

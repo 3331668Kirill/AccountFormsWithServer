@@ -29,11 +29,11 @@ export const FormRequisitesFirm = React.memo(({
 
     const [modalActive, setModalActive] = useState<boolean>(false)
     console.log("render Form")
-    const [error, setError] = useState('')
+    const [serverAnswer, setServerAnswer] = useState('')
 
-    const newCustomerRequest = async () => {
+    const saveCustomerOnServer = async () => {
         try {
-            setError('')
+            setServerAnswer('')
             const response = await fetch('/api/customer/customer', {
                 method: 'POST', headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -41,19 +41,38 @@ export const FormRequisitesFirm = React.memo(({
                 body: JSON.stringify({nameFirm, address, bankAccount, unp})
             })
             const data = await response.json()
-            console.log('msg', data.message)
-            console.log('data', data)
+            setServerAnswer(data.message)
             if (!response.ok && data.errors) {
                 throw new Error(data.errors[0].msg || "something go wrong")
             }
 
         } catch (e: any) {
             console.error(e)
-            setError(e.toString())
+            setServerAnswer(e.toString())
         }
 
     }
+    const getCustomerFromServer = async () => {
+        try {
+            setServerAnswer('')
+            const response = await fetch('/api/customer/customer', {
+                method: 'POST', headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify({nameFirm, address, bankAccount, unp})
+            })
+            const data = await response.json()
+            setServerAnswer(data.message)
+            if (!response.ok && data.errors) {
+                throw new Error(data.errors[0].msg || "something go wrong")
+            }
 
+        } catch (e: any) {
+            console.error(e)
+            setServerAnswer(e.toString())
+        }
+
+    }
 
 
     return (<div>
@@ -88,13 +107,14 @@ export const FormRequisitesFirm = React.memo(({
                        className={inp.input} value={address} onChange={changeAddress} maxLength={40}/>
             </div>
             <div className={inp.input_field}>
-                <label>введите расчетный счет организации: </label>
+                <label>введите расчетный счет, банк и код банка: </label>
                 <input type={"text"} id={val === 'customer' ? 'bankAccount' : 'bankAccountOwn'}
                        className={inp.input} style={{width: '250px'}}
-                       value={bankAccount} onChange={changeBankAccount} maxLength={28}/>
+                       value={bankAccount} onChange={changeBankAccount} maxLength={58}/>
             </div>
-            <button onClick={newCustomerRequest}> сохранить на сервер </button>
-            <div style={{color: "red"}}>{error}</div>
+            <button className={inp.button} onClick={saveCustomerOnServer}> сохранить на сервер </button>
+            <button className={inp.button} onClick={getCustomerFromServer}> получить данные с сервера </button>
+            <div style={{color: "red"}}>{serverAnswer}</div>
         </Modal>
     </div>)
 })

@@ -4,7 +4,7 @@ import {ComponentToPrint} from './Print';
 import css from './form.module.css'
 
 type TypeFormProps = {
-    form: string
+    form: 'act_form' | 'invoice_form' | 'ttn_form'
 }
 
 export const Form = ({form}: TypeFormProps) => {

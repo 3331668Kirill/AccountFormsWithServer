@@ -93,7 +93,7 @@ export const ComponentToPrint = React.forwardRef((props: TypeComponentToPrintPro
         }
     }
 
-    let arrDiv: Array<any> = new Array(7).fill('1').map((t, i) => <div key={i} className={css.cell}></div>)
+    let arrDiv: Array<any> = new Array(7).fill('1').map((t, i) => <div key={i} className={css.cell}> </div>)
 
     let date = docDate.value.toString()
     let dateStr = `${date[8]}${date[9]}.${date[5]}${date[6]}.${date[0]}${date[1]}${date[2]}${date[3]}`

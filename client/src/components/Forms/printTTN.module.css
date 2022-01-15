@@ -50,3 +50,10 @@ tr:hover td {
     /*justify-content: space-between;*/
     margin-bottom: 10px;
 }
+
+
+.table_second{
+    width: 200px;
+    max-width: 200px;
+    font-size: 10px;
+}

@@ -4,7 +4,7 @@
     font-size: 38px;
     line-height: 42px;
     display: flex;
-    color: #fff;
+    color: #c43030;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     flex-direction: row;
@@ -20,7 +20,7 @@
     width: 100vw;
     padding: 0;
     margin: 0 auto;
-    background-color: #04049b;
+    background-color: #e8f8af;
 
 }
 
@@ -59,7 +59,7 @@
     vertical-align: top;
     padding: 14px 10px 0;
     height: 70px;
-    color: #fff;
+    color: #a61919;
     opacity: 1;
     font-weight: 400;
     font-family: Roboto,Helvetica,Arial,sans-serif;

@@ -24,6 +24,19 @@ router.post(
 
         }
 })
+router.get('/customer',[],
+    async (req,res)=>{
+        try{
+            //const customer =await Customer.find({unp:'193229103'})
+            const unp = req.query
+            const customer = await Customer.find(unp)
+            res.json(customer)
+            res.status(200).json({message:"Customer is loaded"})
+        }catch (e) {
 
+            res.status(500).json({message:"Something go wrong"})
+
+        }
+    })
 
 module.exports = router
