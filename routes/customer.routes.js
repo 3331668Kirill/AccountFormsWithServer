@@ -24,14 +24,14 @@ router.post(
 
         }
 })
-router.get('/customer',[],
+router.get('/customer/:id',[],
     async (req,res)=>{
         try{
-            //const customer =await Customer.find({unp:'193229103'})
-            const unp = req.query
-            const customer = await Customer.find(unp)
-            res.json(customer)
-            res.status(200).json({message:"Customer is loaded"})
+
+            const unp = req.params.id
+            const customer = await Customer.find({unp})
+            if (customer.length === 0) res.status(200).json({message:"Customer not found"})
+            res.status(200).json({message:"Customer is loaded",customer:customer[0]})
         }catch (e) {
 
             res.status(500).json({message:"Something go wrong"})

@@ -30,6 +30,7 @@ export const FormRequisitesFirm = React.memo(({
     const [modalActive, setModalActive] = useState<boolean>(false)
     console.log("render Form")
     const [serverAnswer, setServerAnswer] = useState('')
+    const [editMode, setEditMode] = useState(false)
 
     const saveCustomerOnServer = async () => {
         try {
@@ -55,18 +56,25 @@ export const FormRequisitesFirm = React.memo(({
     const getCustomerFromServer = async () => {
         try {
             setServerAnswer('')
-            const response = await fetch('/api/customer/customer', {
-                method: 'POST', headers: {
+
+            const response = await fetch(`/api/customer/customer/${unp}`, {
+                method: 'GET', headers: {
                     'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify({nameFirm, address, bankAccount, unp})
+                }
             })
             const data = await response.json()
+            console.log(data)
+            setEditMode(true)
             setServerAnswer(data.message)
             if (!response.ok && data.errors) {
                 throw new Error(data.errors[0].msg || "something go wrong")
             }
-
+            if (data.customer){
+            setEditMode(false)
+            changeNameFirm(data.customer.nameFirm)
+            changeAddress(data.customer.address)
+            changeBankAccount(data.customer.bankAccount)
+            }
         } catch (e: any) {
             console.error(e)
             setServerAnswer(e.toString())
@@ -96,7 +104,7 @@ export const FormRequisitesFirm = React.memo(({
                 <input type={"text"} id={val === 'customer' ? 'unp' : 'unpOwn'} value={unp} onChange={changeUnp}
                         className={inp.input} maxLength={9}/>
             </div>
-            <div className={inp.input_field}>
+            {editMode && <><div className={inp.input_field}>
                 <label>введите наименование организации: </label>
                 <input type={"text"} id={val === 'customer' ? 'nameFirm' : 'nameFirmOwn'} value={nameFirm}
                        className={inp.input} onChange={changeNameFirm} maxLength={30}/>
@@ -113,6 +121,7 @@ export const FormRequisitesFirm = React.memo(({
                        value={bankAccount} onChange={changeBankAccount} maxLength={58}/>
             </div>
             <button className={inp.button} onClick={saveCustomerOnServer}> сохранить на сервер </button>
+            </>}
             <button className={inp.button} onClick={getCustomerFromServer}> получить данные с сервера </button>
             <div style={{color: "red"}}>{serverAnswer}</div>
         </Modal>

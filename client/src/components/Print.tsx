@@ -28,24 +28,16 @@ export const ComponentToPrint = React.forwardRef((props: TypeComponentToPrintPro
     const docDate = useInput('')
     const service = useInput('')
     const unit = useInput('')
-    // @ts-ignore
-    const nameFirm = useInput(localStorage.getItem('nameFirm'))
-    // @ts-ignore
-    const nameFirmOwn = useInput(localStorage.getItem('nameFirmOwn'))
-    // @ts-ignore
-    const address = useInput(localStorage.getItem('address'))
-    // @ts-ignore
-    const addressOwn = useInput(localStorage.getItem('addressOwn'))
-    // @ts-ignore
-    const bankAccount = useInput(localStorage.getItem('bankAccount'))
-    // @ts-ignore
-    const bankAccountOwn = useInput(localStorage.getItem('bankAccountOwn'))
+    const nameFirm = useInput('')
+    const nameFirmOwn = useInput('')
+    const address = useInput('')
+    const addressOwn = useInput('')
+    const bankAccount = useInput('')
+    const bankAccountOwn = useInput('')
     const price = useInputNum('')
     const quantity = useInputNum('')
-    // @ts-ignore
-    const unp = useInputNum(localStorage.getItem('unp'))
-    // @ts-ignore
-    const unpOwn = useInputNum(localStorage.getItem('unpOwn'))
+    const unp = useInputNum('')
+    const unpOwn = useInputNum('')
     const vat = useInput('')
 
     let cost = +(+quantity.value * +price.value).toFixed(2)
