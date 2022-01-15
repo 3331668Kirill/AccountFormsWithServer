@@ -84,6 +84,7 @@ export const FormRequisitesFirm = React.memo(({
 
 
     return (<div>
+
         {val === 'customer' &&
         <button className={css.button}
                 onClick={() => {setModalActive(true)
@@ -92,13 +93,13 @@ export const FormRequisitesFirm = React.memo(({
         </button>
 
         }
-        {val === 'executor' && <div>
+        {val === 'executor' &&
             <button className={css.button}
                     onClick={() => {setModalActive(true)
                         setEditMode(false)}}
             > РЕКВИЗИТЫ ИСПОЛНИТЕЛЯ
             </button>
-        </div>}
+        }
 
         <Modal active={modalActive} setActive={setModalActive}>
             <div className={inp.input_field}>

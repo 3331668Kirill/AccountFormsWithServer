@@ -53,7 +53,7 @@
 
 .input{
     background-color: transparent;
-    border: 1px solid rgba(255,255,255,.4);
+    border: 1px solid #e8f8af;
     border-radius: 4px;
     box-shadow: none;
     vertical-align: top;
@@ -75,14 +75,14 @@
 .input_text{
     position: relative;
     background-color: transparent;
-    border: 1px solid rgba(255,255,255,.4);
+    border: 1px solid rgba(199, 8, 8, 0.4);
     border-radius: 4px;
     box-shadow: none;
     vertical-align: top;
     margin-left: 10px;
     padding: 14px 10px 0;
     height: 30px;
-    color: #fff;
+    color: #07106c;
     opacity: 1;
     font-weight: 400;
     font-family: Roboto,Helvetica,Arial,sans-serif;
@@ -96,4 +96,17 @@
     flex-wrap: nowrap;
     align-content: flex-end;
     justify-content: center;
+}
+.error{
+    display: flex;
+    color: red;
+    margin: 100px;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    color: red;
+    font-size: 30px;
+    font-weight: 500;
 }

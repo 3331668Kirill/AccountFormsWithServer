@@ -2,11 +2,12 @@ const {Router} = require('express')
 const Customer = require('../models/Customer')
 const router = Router()
 
+
 router.post(
-    '/customer',[],
+    '/customer',
     async (req,res)=>{
         try{
-            const {nameFirm, unp, address, bankAccount} = req.body
+         const {nameFirm, unp, address, bankAccount} = req.body
 
             const candidate = await Customer.findOne({unp})
             if (candidate){
@@ -16,7 +17,7 @@ router.post(
             const customer = new Customer({nameFirm, unp, address, bankAccount})
 
             await customer.save()
-            res.status(201).json({message:"Контрагент сохранен в беза данных"})
+            res.status(201).json({message:"Контрагент сохранен в базе данных"})
 
         }catch (e) {
 
@@ -24,7 +25,7 @@ router.post(
 
         }
 })
-router.get('/customer/:id',[],
+router.get('/customer/:id',
     async (req,res)=>{
         try{
 

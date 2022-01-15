@@ -81,9 +81,7 @@ export const AuthPage = ({auth}: PropsAuthPage) => {
             <button className={css.btn} onClick={loginRequest}> ВХОД</button>
             <button className={css.btn} onClick={registrationRequest}> РЕГИСТРАЦИЯ</button>
             </div>
-            {email}
-            {password}
-            <div style={{color: "red"}}>{error}</div>
+            <div className={css.error}>{error}</div>
         </div>
     )
 }
