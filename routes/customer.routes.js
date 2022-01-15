@@ -10,17 +10,17 @@ router.post(
 
             const candidate = await Customer.findOne({unp})
             if (candidate){
-                return res.status(400).json({message:"This customer is already exist"})
+                return res.status(400).json({message:"Контрагент с таким УНП уже существует"})
             }
 
             const customer = new Customer({nameFirm, unp, address, bankAccount})
 
             await customer.save()
-            res.status(201).json({message:"Customer is created"})
+            res.status(201).json({message:"Контрагент сохранен в беза данных"})
 
         }catch (e) {
 
-            res.status(500).json({message:"Something go wrong"})
+            res.status(500).json({message:"Произошла ОШИБКА"})
 
         }
 })
@@ -30,11 +30,11 @@ router.get('/customer/:id',[],
 
             const unp = req.params.id
             const customer = await Customer.find({unp})
-            if (customer.length === 0) res.status(200).json({message:"Customer not found"})
-            res.status(200).json({message:"Customer is loaded",customer:customer[0]})
+            if (customer.length === 0) res.status(200).json({message:"Контрагент не найден"})
+            res.status(200).json({message:"Данные о контрагенте получены",customer:customer[0]})
         }catch (e) {
 
-            res.status(500).json({message:"Something go wrong"})
+            res.status(500).json({message:"Произошла ОШИБКА"})
 
         }
     })

@@ -86,14 +86,16 @@ export const FormRequisitesFirm = React.memo(({
     return (<div>
         {val === 'customer' &&
         <button className={css.button}
-                onClick={() => setModalActive(true)}
+                onClick={() => {setModalActive(true)
+                setEditMode(false)}}
         > РЕКВИЗИТЫ ЗАКАЗЧИКА
         </button>
 
         }
         {val === 'executor' && <div>
             <button className={css.button}
-                    onClick={() => setModalActive(true)}
+                    onClick={() => {setModalActive(true)
+                        setEditMode(false)}}
             > РЕКВИЗИТЫ ИСПОЛНИТЕЛЯ
             </button>
         </div>}
@@ -121,9 +123,11 @@ export const FormRequisitesFirm = React.memo(({
                        value={bankAccount} onChange={changeBankAccount} maxLength={58}/>
             </div>
             <button className={inp.button} onClick={saveCustomerOnServer}> сохранить на сервер </button>
+                <div style={{color: "red"}}> Контрагент не найден! Введите данные и сохраните на сервер</div>
             </>}
-            <button className={inp.button} onClick={getCustomerFromServer}> получить данные с сервера </button>
+            {!editMode &&  <button className={inp.button} onClick={getCustomerFromServer}> получить данные с сервера </button>}
             <div style={{color: "red"}}>{serverAnswer}</div>
+
         </Modal>
     </div>)
 })
