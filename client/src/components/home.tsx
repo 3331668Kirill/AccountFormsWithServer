@@ -5,10 +5,11 @@ import homeimage from './home.jpeg'
 
 function Home () {
     return (
-        <div className="home" style={{backgroundColor: 'white'}}>
+        <div className="home" >
 
-            ГЛАВНАЯ
-            <img src={homeimage}/>
+            <h1>Доброго времени суток!!!</h1>
+            Сайт находится в процессе разработке, однако некоторые формы работают.
+
 
         </div>
 

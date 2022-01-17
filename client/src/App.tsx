@@ -27,6 +27,7 @@ function App() {
                         <Routes>
                             <Route path="home" element={<Home/>}/>
                             <Route path="/" element={<Home/>}/>
+                            <Route path="/AccountForms" element={<Home/>}/>
                             <Route path="act_form" element={<Form form={'act_form'}/>}/>
                             <Route path="invoice_form" element={<Form form={'invoice_form'}/>}/>
                             <Route path="ttn_form" element={<Form form={'ttn_form'}/>}/>
