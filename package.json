@@ -1,6 +1,5 @@
 {
   "name": "accountforms",
-  "homepage": "https://3331668kirill.github.io/AccountFormsWithServer/",
   "version": "1.0.0",
   "description": "forms to printing and saving to files",
   "main": "app.js",
@@ -11,8 +10,6 @@
     "client": "npm run start --prefix client",
     "client install": "npm install --prefix client",
     "client build": "npm run build --prefix client",
-    "predeploy": "npm run build --prefix client",
-    "deploy": "gh-pages -d build",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Mitko Kirill <3331668@mail.ru>",

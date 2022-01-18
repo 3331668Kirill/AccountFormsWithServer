@@ -9,13 +9,13 @@ import {AuthPage} from "./components/auth/AuthPage";
 
 
 function App() {
-    const [isAuth, setIsAuth] = useState(false)
-
-    useEffect(() => {
-        if (sessionStorage.getItem('data')) {
-            setIsAuth(true)
-        }
-    }, [])
+    const [isAuth, setIsAuth] = useState(true)
+    //
+    // useEffect(() => {
+    //     if (sessionStorage.getItem('data')) {
+    //         setIsAuth(true)
+    //     }
+    // }, [])
 
 
     return (

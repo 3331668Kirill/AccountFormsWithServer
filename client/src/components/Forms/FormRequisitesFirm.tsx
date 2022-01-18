@@ -78,6 +78,7 @@ export const FormRequisitesFirm = React.memo(({
         } catch (e: any) {
             console.error(e)
             setServerAnswer(e.toString())
+            setEditMode(true)
         }
 
     }
